@@ -1,0 +1,233 @@
+/* *{
+    outline: white dashed 1px;
+} */
+
+:root {
+    --primary: #00ff66;
+    --bg: #001a00;
+    --glow: 0 0 8px var(--primary);
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--primary);
+    font-family: "Courier New", monospace;
+    overflow: hidden;
+}
+
+h1, h2 {
+    text-shadow: var(--glow);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--primary);
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-family: "Courier New", monospace;
+    color: var(--primary);
+    padding: 12px 22px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.nav-btn.active,
+.nav-btn:hover {
+    background: var(--primary);
+    text-shadow: 0 0 12px var(--primary);
+    color: black;
+}
+
+/* NAV LAYOUT */
+.pip-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.nav-left {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-underline {
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px var(--primary);
+}
+
+/* PipBoy Switch */
+.pip-switch {
+    position: relative;
+    display: flex;
+    border: 1px solid var(--primary);
+    padding: 3px;
+    cursor: pointer;
+    width: 100px;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.pip-switch .mode {
+    flex: 1;
+    text-align: center;
+    z-index: 2;
+}
+
+.switch-indicator {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    width: 45px;
+    background: var(--primary);
+    transition: 0.3s ease;
+    z-index: 1;
+}
+
+body.nv-theme .switch-indicator {
+    left: 58px;
+}
+
+.pip-switch .mode.active {
+    color: black;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+    height: calc(100vh - 140px);
+    overflow-y: auto;
+}
+
+.tab {
+    display: none;
+}
+
+.tab.active {
+    display: block;
+}
+
+/* Boot Screen */
+#boot-screen {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    color: var(--primary);
+    padding: 40px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Theme Toggle */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: #444;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+/* Fallout New Vegas Theme */
+body.nv-theme {
+    --primary: #ffae00;
+    --bg: #1a0d00;
+}
+
+/* CRT Scanlines */
+.crt-overlay {
+    pointer-events: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        rgba(0,0,0,0.2) 0px,
+        rgba(0,0,0,0.2) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+}
+
+/* Effects */
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 5px var(--primary); }
+    50% { box-shadow: 0 0 25px var(--primary); }
+    100% { box-shadow: 0 0 5px var(--primary); }
+}
+
+.glow-effect {
+    animation: glowPulse 0.6s ease;
+}
+
+@keyframes flickerBurst {
+    0% { opacity: 1; }
+    20% { opacity: 0.4; }
+    40% { opacity: 1; }
+    60% { opacity: 0.3; }
+    80% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+.flicker {
+    animation: flickerBurst 0.4s linear;
+}

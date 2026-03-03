@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RobCo Pip-Boy Terminal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"></audio>
+<body class="fo4-theme">
+
+    <!-- CRT Overlay -->
+    <div class="crt-overlay"></div>
+
+    <!-- Boot Screen -->
+    <div id="boot-screen">
+        <pre id="boot-text"></pre>
+    </div>
+
+    <!-- Main PipBoy -->
+    <div id="pipboy" class="hidden">
+
+        <header>
+    <h1>CRAIG TECHDEV ™ PORTFOLIO</h1>
+</header>
+
+<nav class="pip-nav">
+
+    <div class="nav-left">
+        <button class="nav-btn active" data-tab="home">HOME</button>
+        <button class="nav-btn" data-tab="proj">PROJECTS</button>
+        <button class="nav-btn" data-tab="exp">EXPERIENCES</button>
+        <button class="nav-btn" data-tab="abt">ABOUT ME</button>
+        <button class="nav-btn" data-tab="cont">CONTACT</button>
+
+        <!-- Animated Underline -->
+    <div class="nav-underline"></div>
+    </div>
+
+    <!-- Integrated Theme Switch -->
+    <div class="nav-right">
+        <span class="theme-label">&nbsp</span>
+
+        <div class="pip-switch">
+            <span class="mode fo4 active">&nbsp</span>
+            <span class="mode nv">&nbsp</span>
+            <div class="switch-indicator"></div>
+        </div>
+    </div>
+
+</nav>
+
+        <!-- Content -->
+        <main>
+            <section id="home" class="tab active">
+                <h2>Welcome</h2>
+            </section>
+
+            <section id="proj" class="tab">
+                <h2>Here are my projects</h2>
+            </section>
+
+            <section id="exp" class="tab">
+                <h2>Here are my job experiences</h2>
+            </section>
+
+            <section id="abt" class="tab">
+                <h2>About Me</h2>
+            </section>
+
+            <section id="cont" class="tab">
+                <h2>Contact Me:</h2>
+
+            </section>
+        </main>
+
+    </div>
+
+<script src="script/script.js"></script>
+</body>
+</html>
