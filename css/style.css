@@ -1,6 +1,7 @@
 *{
   font-family: "Share Tech Mono", monospace;
-  /* outline: white dashed 0.5px; */
+  box-sizing: border-box;
+  /* outline: white dashed 0.5px;  */
 }
 
 body.fo4-theme {
@@ -39,6 +40,7 @@ nav {
     padding: 10px;
 }
 
+/* NAV BTN LAYOUT */
 .nav-btn {
     background: none;
     border: none;
@@ -56,21 +58,6 @@ nav {
     /* background: var(--primary); */
     text-shadow: 0 0 12px var(--primary);
     color: var(--primary);
-}
-
-.home-h3{
-    font-size: 42px;
-    margin-bottom: 0px;
-}
-
-.home-h1{
-    font-size: 64px;
-    text-shadow: var(--glow);
-    margin: 10px 0px;
-}
-
-.home-p{
-    font-size: 18px;
 }
 
 /* NAV LAYOUT */
@@ -277,4 +264,65 @@ body.nv-theme {
 
 .flicker {
     animation: flickerBurst 0.4s linear;
+}
+
+/* HOME TAB LAYOUT */
+.home-h3{
+    font-size: 36px;
+    margin-bottom: 0px;
+}
+
+.home-h1{
+    font-size: 48px;
+    text-shadow: var(--glow);
+    margin: 10px 0px;
+}
+
+.home-p{
+    font-size: 16px;
+}
+
+/* Terminal Cursor Animation */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Applying the cursor to your main headers */
+#home span::before {
+    content: "█";
+    margin-left: 5px;
+    animation: blink 1s infinite;
+    font-size: 0.8em;
+    vertical-align: middle;
+}
+
+/* CRT Scanline effect for the image */
+.home-image {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Simple styling for the Hire Me / Check My Work buttons */
+#home button {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: "Share Tech Mono", monospace;
+    transition: 0.2s;
+}
+
+#home button:hover {
+    background: var(--primary);
+    color: var(--bg);
+    box-shadow: var(--glow);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
