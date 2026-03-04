@@ -1,10 +1,17 @@
-/* *{
-    outline: white dashed 1px;
-} */
+*{
+  font-family: "Share Tech Mono", monospace;
+  /* outline: white dashed 0.5px; */
+}
 
-:root {
+body.fo4-theme {
     --primary: #00ff66;
     --bg: #001a00;
+    --glow: 0 0 8px var(--primary);
+}
+
+body.nv-theme {
+    --primary: #ffae00;
+    --bg: #1a0d00;
     --glow: 0 0 8px var(--primary);
 }
 
@@ -12,7 +19,7 @@ body {
     margin: 0;
     background: var(--bg);
     color: var(--primary);
-    font-family: "Courier New", monospace;
+    font-family: "Share Tech Mono", monospace;
     overflow: hidden;
 }
 
@@ -24,20 +31,18 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
-    border-bottom: 2px solid var(--primary);
 }
 
 nav {
     display: flex;
     justify-content: space-around;
     padding: 10px;
-    border-bottom: 2px solid var(--primary);
 }
 
 .nav-btn {
     background: none;
     border: none;
-    font-family: "Courier New", monospace;
+    font-family: inherit;
     color: var(--primary);
     padding: 12px 22px;
     font-size: 18px;
@@ -46,12 +51,26 @@ nav {
     position: relative;
 }
 
-
 .nav-btn.active,
 .nav-btn:hover {
-    background: var(--primary);
+    /* background: var(--primary); */
     text-shadow: 0 0 12px var(--primary);
-    color: black;
+    color: var(--primary);
+}
+
+.home-h3{
+    font-size: 42px;
+    margin-bottom: 0px;
+}
+
+.home-h1{
+    font-size: 64px;
+    text-shadow: var(--glow);
+    margin: 10px 0px;
+}
+
+.home-p{
+    font-size: 18px;
 }
 
 /* NAV LAYOUT */
@@ -60,7 +79,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    border-bottom: 2px solid var(--primary);
+    /* border-bottom: 2px solid var(--primary); */
 }
 
 .nav-left {
@@ -76,23 +95,39 @@ nav {
     gap: 10px;
 }
 
-.nav-underline {
-    position: absolute;
-    bottom: 0;
-    height: 3px;
-    background: var(--primary);
-    transition: all 0.3s ease;
-    box-shadow: 0 0 8px var(--primary);
+/* Active Bracket Effect */
+.nav-btn.active::before,
+.nav-btn.active::after {
+  content: '';
+  position: absolute;
+  border: 1px solid var(--primary); /* Set your border style, width, and color */
+  width: 10px; /* Length of the horizontal ends of the brackets */
+  height: calc(100% - 2px); /* Vertical height, minus 2px for top/bottom borders */
+  top: 0;
 }
 
-/* PipBoy Switch */
+.nav-btn.active::before {
+    left: 0;
+    border-right: none; /* Remove inner vertical border */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.nav-btn.active::after {
+    right: 0;
+    border-left: none; /* Remove inner vertical border */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/*Theme Switch */
 .pip-switch {
     position: relative;
     display: flex;
     border: 1px solid var(--primary);
     padding: 3px;
     cursor: pointer;
-    width: 100px;
+    width: 80px;
     justify-content: space-between;
     font-size: 14px;
 }
@@ -108,14 +143,14 @@ nav {
     top: 3px;
     bottom: 3px;
     left: 3px;
-    width: 45px;
+    width: 35px;
     background: var(--primary);
     transition: 0.3s ease;
     z-index: 1;
 }
 
 body.nv-theme .switch-indicator {
-    left: 58px;
+    left: 48px;
 }
 
 .pip-switch .mode.active {
@@ -208,15 +243,27 @@ body.nv-theme {
     );
 }
 
-/* Effects */
 @keyframes glowPulse {
-    0% { box-shadow: 0 0 5px var(--primary); }
-    50% { box-shadow: 0 0 25px var(--primary); }
-    100% { box-shadow: 0 0 5px var(--primary); }
+    0% { text-shadow: 0 0 5px var(--primary); }
+    50% { text-shadow: 0 0 25px var(--primary); }
+    100% { text-shadow: 0 0 5px var(--primary); }
+}
+
+.glow-effect h1,
+.glow-effect h2,
+.glow-effect .nav-btn,
+.glow-effect .pip-switch {
+    animation: glowPulse 0.6s ease;
+}
+
+@keyframes screenGlow {
+    0% { box-shadow: inset 0 0 10px var(--primary); }
+    50% { box-shadow: inset 0 0 60px var(--primary); }
+    100% { box-shadow: inset 0 0 10px var(--primary); }
 }
 
 .glow-effect {
-    animation: glowPulse 0.6s ease;
+    animation: screenGlow 0.5s ease;
 }
 
 @keyframes flickerBurst {

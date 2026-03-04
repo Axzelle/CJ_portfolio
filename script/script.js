@@ -1,13 +1,13 @@
 // Boot sequence
 const bootText = `
 CRAIG TECHDEV UNIFIED OPERATING SYSTEM
-COPYRIGHT 2075 CRAIG TECHDEV INDUSTRIES
+COPYRIGHT 2026 CRAIG TECHDEV INDUSTRIES
 
-BIOS CHECK OK
-RAM CHECK OK
+BIOS CHECK OK...
+RAM CHECK OK...
 INITIALIZING PIP-OS v3.4.5...
 
-WELCOME USER
+WELCOME USER...
 `;
 
 let i = 0;
@@ -51,10 +51,6 @@ const clickSound = document.getElementById("clickSound");
 
 pipSwitch.addEventListener("click", () => {
 
-    // Sound
-    clickSound.currentTime = 0;
-    clickSound.play();
-
     // Flicker
     document.body.classList.add("flicker");
 
@@ -84,25 +80,63 @@ pipSwitch.addEventListener("click", () => {
 });
 
 // Navbar Effects
-const underline = document.querySelector(".nav-underline");
+// const underline = document.querySelector(".nav-underline");
 const navBtns = document.querySelectorAll(".nav-btn");
 
-function moveUnderline(element) {
-    underline.style.width = element.offsetWidth + "px";
-    underline.style.left = element.offsetLeft + "px";
-}
+// function moveUnderline(element) {
+//     underline.style.width = element.offsetWidth + "px";
+//     underline.style.left = element.offsetLeft + "px";
+// }
 
 // Initialize underline on load
-window.addEventListener("load", () => {
-    const activeBtn = document.querySelector(".nav-btn.active");
-    moveUnderline(activeBtn);
-});
+// window.addEventListener("load", () => {
+//     const activeBtn = document.querySelector(".nav-btn.active");
+//     moveUnderline(activeBtn);
+// });
 
 navBtns.forEach(btn => {
     btn.addEventListener("click", () => {
         navBtns.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
-        moveUnderline(btn);
+        // moveUnderline(btn);
     });
 });
+
+// ──── Navbar active indicator animation ────────
+// const navBtns = document.querySelectorAll(".nav-btn");
+// const indicator = document.querySelector(".nav-indicator");
+
+// function updateIndicator(btn) {
+//     if (!btn || !indicator) return;
+    
+//     indicator.style.width = `${btn.offsetWidth}px`;
+//     indicator.style.left  = `${btn.offsetLeft}px`;   // relative to .nav-left
+// }
+
+// window.addEventListener("load", () => {
+//     const active = document.querySelector(".nav-btn.active");
+//     if (active) updateIndicator(active);
+    
+//     // Also update on resize (important for responsive)
+//     window.addEventListener("resize", () => {
+//         const active = document.querySelector(".nav-btn.active");
+//         if (active) updateIndicator(active);
+//     });
+// });
+
+// navBtns.forEach(btn => {
+//     btn.addEventListener("click", () => {
+//         navBtns.forEach(b => b.classList.remove("active"));
+//         btn.classList.add("active");
+        
+//         updateIndicator(btn);
+        
+//         // Your existing tab switching code here
+//         document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
+//         document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        
+//         btn.classList.add("active");
+//         document.getElementById(btn.dataset.tab).classList.add("active");
+//     });
+// });

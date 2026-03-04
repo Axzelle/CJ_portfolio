@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RobCo Pip-Boy Terminal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CraigTechDev Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"></audio>
 <body class="fo4-theme">
 
     <!-- CRT Overlay -->
@@ -19,21 +22,21 @@
     <!-- Main PipBoy -->
     <div id="pipboy" class="hidden">
 
-        <header>
-    <h1>CRAIG TECHDEV ™ PORTFOLIO</h1>
-</header>
+    <header>
+        <h1>CRAIG TECHDEV PORTFOLIO</h1>
+    </header>
 
 <nav class="pip-nav">
 
     <div class="nav-left">
-        <button class="nav-btn active" data-tab="home">HOME</button>
-        <button class="nav-btn" data-tab="proj">PROJECTS</button>
-        <button class="nav-btn" data-tab="exp">EXPERIENCES</button>
-        <button class="nav-btn" data-tab="abt">ABOUT ME</button>
-        <button class="nav-btn" data-tab="cont">CONTACT</button>
+        <button class="nav-btn active" data-tab="home"><span>HOME</span></button>
+        <button class="nav-btn" data-tab="proj"><span>PROJECTS</span></button>
+        <button class="nav-btn" data-tab="exp"><span>EXPERIENCES</span></button>
+        <button class="nav-btn" data-tab="abt"><span>ABOUT</span></button>
+        <button class="nav-btn" data-tab="cont"><span>CONTACT</span></button>
 
-        <!-- Animated Underline -->
-    <div class="nav-underline"></div>
+        <!-- Moving indicator -->
+        <!-- <div class="nav-indicator"></div> -->
     </div>
 
     <!-- Integrated Theme Switch -->
@@ -52,15 +55,21 @@
         <!-- Content -->
         <main>
             <section id="home" class="tab active">
-                <h2>Welcome</h2>
+                <h3 class="home-h3">From Tech to Dev</h3>
+                <h1 class="home-h1">From Maintaining Infrastructure</h1>
+                <h1 class="home-h1">To Crafting Digital Experiences.</h1>
+                <p class="home-p">IT Support • Asset Management Analyst • Web Development</p>
+                <button>Hire Me</button><button>Check My Work</button>                
             </section>
 
             <section id="proj" class="tab">
                 <h2>Here are my projects</h2>
+
             </section>
 
             <section id="exp" class="tab">
                 <h2>Here are my job experiences</h2>
+
             </section>
 
             <section id="abt" class="tab">
